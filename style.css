@@ -4,11 +4,15 @@ body {
 }
 
 .black {
-    background-color: #000000;
+    background-color: black;
+    height: 40px;
+    width: 20px;
 }
 
 .white {
-    background-color: #ffffff;
+    background-color: white;
+    height: 40px;
+    width: 20px;
 }
 
 /* button */
@@ -21,4 +25,10 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+.boardTable {
+    width: 400px;
+    border: 1px;
+    border-spacing: 0px;
 }
