@@ -114,7 +114,7 @@
                         // square class
                         $squareClass = ($row + $col) % 2 == 0 ? "white" : "black";
                         echo "<td class='$squareClass'>";
-                        echo "<img src='$image' alt='$altText' />";
+                        echo "<img src='$image' alt='$altText' height='50' width='50'>";
                         echo "</td>";
                     } else {
                         // square is empty

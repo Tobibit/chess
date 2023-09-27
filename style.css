@@ -5,16 +5,14 @@ body {
 
 .black {
     background-color: black;
-    height: 40px;
-    width: 20px;
-    color: white;
+    height: 60px;
+    width: 60px;
 }
 
 .white {
     background-color: white;
-    height: 40px;
-    width: 20px;
-    color: black;
+    height: 60px;
+    width: 60px;
 }
 
 /* button */
