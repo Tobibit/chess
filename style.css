@@ -7,12 +7,14 @@ body {
     background-color: black;
     height: 40px;
     width: 20px;
+    color: white;
 }
 
 .white {
     background-color: white;
     height: 40px;
     width: 20px;
+    color: black;
 }
 
 /* button */
@@ -31,4 +33,7 @@ body {
     width: 400px;
     border: 1px;
     border-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 24px;
 }
