@@ -9,7 +9,7 @@
 <body>
     <div class="chessboard-container">
         <div class="chessboard">
-            <table>
+            <table class="boardTable">
                 <?php
                 include_once("./classFunctions.php");
                 include_once("./notationTranslation.php");
@@ -32,7 +32,13 @@
                         $squareClass = ($chessRow + ord($chessCol)) % 2 == 0 ? "white" : "black";
 
                         echo "<td class='$squareClass'>";
-                        echo $chessCol . ($chessRow + 1);
+
+                        foreach($board as $piece){
+                            if($piece->getX() == $chessCol && $piece->getY() == $chessRow){
+                                echo "<img src='" . getImage($piece) . "' alt='" . getColor($piece) . " " . getIdentifier($piece) . "'>";
+                            }
+                        }
+
                         echo "</td>";
                     }
 

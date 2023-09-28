@@ -23,4 +23,8 @@
     function getImage($piece) {
         return $piece->getImage();
     }
+
+    function getIdentifier($piece) {
+        return $piece->getIdentifier();
+    }
 ?>

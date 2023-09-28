@@ -4,25 +4,20 @@ body {
 }
 
 .black {
+    width: 100%;
+    height: 100%;
     background-color: black;
-    height: 60px;
-    width: 60px;
+    border: 1px solid #000;
 }
 
 .white {
-    background-color: white;
-    height: 60px;
-    width: 60px;
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    border: 1px solid #000;
 }
 
-.boardTable {
-    width: 400px;
-    border: 1px;
-    border-spacing: 0px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 24px;
-}
+/* Button */
 
 .button-container {
     display: flex;
@@ -43,4 +38,33 @@ body {
 
 .big-button:hover {
     background-color: #2980b9;
+}
+
+/* Board */
+
+.chessboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chessboard {
+    width: 800px;
+    height: 800px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.boardTable {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+
+.boardTable td {
+    border: 1px solid #ccc; /* Add borders to table cells */
+    padding: 40px; /* Adjust cell padding as needed */
+    text-align: center; /* Center content in cells */
 }
