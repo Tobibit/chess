@@ -1,25 +1,25 @@
 <?php
-    function movement_rook($currentRow, $currentCol) {
+    function movement_rook($currentY, $currentX) {
         $validMoves = [];
 
         // horizontally
-        for($row = 0; $row < 8; $row++){
-            if($row == $currentRow){
-                $validMoves[] = [$row, $currentCol];
+        for($y = 0; $y < 8; $y++){
+            if($y == $currentY){
+                $validMoves[] = [$y, $currentX];
             }
         }
 
         // vertically
-        for($col = 0; $col < 8; $col++){
-            if($col == $currentCol){
-                $validMoves[] = [$currentRow, $col];
+        for($x = 0; $x < 8; $x++){
+            if($x == $currentX){
+                $validMoves[] = [$currentY, $x];
             }
         }
 
         return $validMoves;
     }
 
-    function movement_bishop($currentRow, $currentCol) {
+    function movement_bishop($currentY, $currentX) {
         $validMoves = [];
 
         // 4 directions
@@ -32,12 +32,12 @@
 
         foreach($directions as $dir){
             for($i = 1; $i < 8; $i++){
-                $newRow = $currentRow + ($dir[0] * $i);
-                $newCol = $currentCol + ($dir[1] * $i);
+                $newY = $currentY + ($dir[0] * $i);
+                $newX = $currentX + ($dir[1] * $i);
 
                 // check if move is on the board 
-                if($newRow >= 0 && $newRow < 8 && $newCol >= 0 && $newCol < 8){
-                    $validMoves[] = [$newRow, $newCol];
+                if($newY >= 0 && $newY < 8 && $newX >= 0 && $newX < 8){
+                    $validMoves[] = [$newY, $newX];
                 }
             }
         }
@@ -45,7 +45,7 @@
         return $validMoves;
     }
 
-    function movement_knight($currentRow, $currentCol) {
+    function movement_knight($currentY, $currentX) {
         $validMoves = [];
 
         // knight moves
@@ -57,26 +57,26 @@
         ];
 
         foreach($moves as $move){
-            $newRow = $currentRow + $move[0];
-            $newCol = $currentCol + $move[1];
+            $newY = $currentY + $move[0];
+            $newX = $currentX + $move[1];
 
             // check if move is on the board
-            if($newRow >= 0 && $newRow < 8 && $newCol >= 0 && $newCol < 8){
-                $validMoves[] = [$newRow, $newCol];
+            if($newY >= 0 && $newY < 8 && $newX >= 0 && $newX < 8){
+                $validMoves[] = [$newY, $newX];
             }
         }
 
         return $validMoves;
     }
 
-    function movement_queen($currentRow, $currentCol) {
-        $rookMoves = movement_rook($currentRow, $currentCol);
-        $bishopMoves = movement_bishop($currentRow, $currentCol);
+    function movement_queen($currentY, $currentX) {
+        $rookMoves = movement_rook($currentY, $currentX);
+        $bishopMoves = movement_bishop($currentY, $currentX);
 
         return array_merge($rookMoves, $bishopMoves);
     }
 
-    function movement_king($currentRow, $currentCol) {
+    function movement_king($currentY, $currentX) {
         $validMoves = [];
 
         // one square in every direction
@@ -87,31 +87,31 @@
         ];
 
         foreach($moves as $move) {
-            $newRow = $currentRow + $move[0];
-            $newCol = $currentCol + $move[1];
+            $newY = $currentY + $move[0];
+            $newX = $currentX + $move[1];
 
             // check if move is on the board
-            if($newRow >= 0 && $newRow < 8 && $newCol >= 0 && $newCol < 8){
-                $validMoves[] = [$newRow, $newCol];
+            if($newY >= 0 && $newY < 8 && $newX >= 0 && $newX < 8){
+                $validMoves[] = [$newY, $newX];
             }
         }
 
         return $validMoves;
     }
 
-    function movement_pawn($currentRow, $currentCol, $firstMove = false) {
+    function movement_pawn($currentY, $currentX, $firstMove = false) {
         $validMoves = [];
 
         // moves
         $moves = $firstMove ? [[-1, 0], [-2, 0]] : [[-1, 0], [-1, -1], [-1, 1]];
 
         foreach($moves as $move){
-            $newRow = $currentRow + $move[0];
-            $newCol = $currentCol + $move[1];
+            $newY = $currentY + $move[0];
+            $newX = $currentX + $move[1];
 
             // check if move is on the board
-            if($newRow >= 0 && $newRow < 8 && $newCol >= 0 && $newCol < 8){
-                $validMoves[] = [$newRow, $newCol];
+            if($newY >= 0 && $newY < 8 && $newX >= 0 && $newX < 8){
+                $validMoves[] = [$newY, $newX];
             }
         }
 
