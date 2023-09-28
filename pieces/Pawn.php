@@ -4,11 +4,23 @@
         private $x;
         private $y;
         private $color;
+        private $identifier;
+        private $image;
 
-        public function __construct($x, $y, $color) {
-            $this->x = $x;
-            $this->y = $y;
+        public function __construct($color, $identifier, $x = null, $y = null) {
             $this->color = $color;
+            $this->identifier = $identifier;
+
+            if($color == "white"){
+                $this->x = $x ? $x : substr($identifier, -1);
+                $this->y = $y ? $y : 2;
+                $this->image = "./images/white_pawn.png";
+            }   
+            else{
+                $this->x = $x ? $x : substr($identifier, -1);
+                $this->y = $y ? $y : 7;
+                $this->image = "./images/black_pawn.png";
+            }
         }
 
         public function getX() {
