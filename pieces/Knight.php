@@ -38,6 +38,10 @@
             return $this->image;
         }
 
+        public function getIdentifier() {
+            return $this->identifier;
+        }
+
         public function move($newX, $newY) {
             if(isValid("knight", $this->x, $this->y, $newX, $newY)){
                 $this->x = $newX;
