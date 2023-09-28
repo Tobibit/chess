@@ -12,6 +12,11 @@
         include_once("./classFunctions.php");
         include_once("./notationTranslation.php");
 
+        /*
+        Files = Columns = X
+        Ranks = Rows = Y
+        */
+
         $board = [];
 
         for($row = 0; $row < 8; $row++){
