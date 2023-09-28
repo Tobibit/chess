@@ -14,15 +14,13 @@
             $this->color = $color;
 
             if($color == "white"){
-                $this->y = $y ? $y : 1;	
+                $this->y = $y ? $y : 1;
                 $this->image = "./images/white_rook.png";
             }
             else {
                 $this->y = $y ? $y : 8;
                 $this->image = "./images/black_rook.png";
-            }
-           
-            
+            }     
         }
 
         public function getX() {
