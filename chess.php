@@ -10,7 +10,7 @@
     <table class="boardTable">
         <?php
         include_once("./classFunctions.php");
-        include_once("./notation.php");
+        include_once("./notationTranslation.php");
 
         $board = [];
 
