@@ -15,18 +15,6 @@ body {
     width: 60px;
 }
 
-/* button */
-.button {
-    background-color: #000000;
-    border: none;
-    color: #ffffff;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-
 .boardTable {
     width: 400px;
     border: 1px;
@@ -34,4 +22,25 @@ body {
     text-align: center;
     vertical-align: middle;
     font-size: 24px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.big-button {
+    padding: 100px 200px;
+    font-size: 100px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.big-button:hover {
+    background-color: #2980b9;
 }
