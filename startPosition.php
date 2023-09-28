@@ -6,7 +6,7 @@
 
     function startPosition() {
         $pieces = array([
-            // white
+            // white  
             "white_Rook1" => new Rook ("white", "rook1"),
             "white_Knight1" => new Knight ("white", "knight1"),
             "white_Bishop1" => new Bishop ("white", "bishop1"),
@@ -23,7 +23,7 @@
             "white_Pawn6" => new Pawn ("white", "pawn6"),
             "white_Pawn7" => new Pawn ("white", "pawn7"),
             "white_Pawn8" => new Pawn ("white", "pawn8")
-            ],
+            ], 
             // black
             [
             "black_Rook1" => new Rook ("black", "rook1"),
