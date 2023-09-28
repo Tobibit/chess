@@ -11,7 +11,6 @@
             $this->color = $color;
             $this->identifier = $identifier;
             $this->x = $x ? $x : 3;
-            $this->color = $color;
 
             if($color == "white"){
                 $this->y = $y ? $y : 0;
