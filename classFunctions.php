@@ -1,10 +1,8 @@
 <?php
-    include_once "./pieces/Rook.php";
-    include_once "./pieces/Knight.php";
-    include_once "./pieces/Bishop.php";
-    include_once "./pieces/Queen.php";
-    include_once "./pieces/King.php";
-    include_once "./pieces/Pawn.php";
+    $pieces = array("Rook", "Knight", "Bishop", "Queen", "King", "Pawn");
+    foreach($pieces as $piece) {
+        include_once "./pieces/$piece.php";
+    }
 
     function getX($piece) {
         return $piece->getX();
