@@ -9,6 +9,14 @@
 <body>
     <table class="boardTable">
         <?php
+        include_once "./pieces/Rook.php";
+        include_once "./pieces/Knight.php";
+        include_once "./pieces/Bishop.php";
+        include_once "./pieces/Queen.php";
+        include_once "./pieces/King.php";
+        include_once "./pieces/Pawn.php";
+
+        /*
             $pieces = [
                 // rank 8
                 [
@@ -99,6 +107,7 @@
                 ["color" => "white", "type" => "rook2", "image" => "./images/white_rook.png"]
                 ]
             ];
+        */
 
             for($row = 0; $row < 8; $row++){
                 echo "<tr>";
