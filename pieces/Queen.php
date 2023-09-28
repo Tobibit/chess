@@ -20,7 +20,7 @@
             else {
                 $this->y = $y ? $y : 8;
                 $this->image = "../images/black_queen.png";
-            }    
+            }
         }
 
         public function getX() {
@@ -33,6 +33,10 @@
 
         public function getColor() {
             return $this->color;
+        }
+
+        public function getImage() {
+            return $this->image;
         }
 
         public function move($newX, $newY) {

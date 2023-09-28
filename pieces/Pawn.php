@@ -15,7 +15,7 @@
             if($color == "white"){
                 $this->y = $y ? $y : 2;
                 $this->image = "../images/white_pawn.png";
-            }   
+            }
             else{
                 $this->y = $y ? $y : 7;
                 $this->image = "../images/black_pawn.png";
@@ -32,6 +32,10 @@
 
         public function getColor() {
             return $this->color;
+        }
+
+        public function getImage() {
+            return $this->image;
         }
 
         public function move($newX, $newY) {

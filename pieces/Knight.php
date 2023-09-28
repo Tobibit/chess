@@ -34,6 +34,10 @@
             return $this->color;
         }
 
+        public function getImage() {
+            return $this->image;
+        }
+
         public function move($newX, $newY) {
             if(isValid("knight", $this->x, $this->y, $newX, $newY)){
                 $this->x = $newX;

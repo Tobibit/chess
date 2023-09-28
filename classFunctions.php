@@ -21,4 +21,8 @@
     function move($piece, $newX, $newY) {
         $piece->move($newX, $newY);
     }
+
+    function getImage($piece) {
+        return $piece->getImage();
+    }
 ?>
