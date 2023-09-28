@@ -11,19 +11,25 @@
         <?php
         include_once("./classFunctions.php");
 
-            for($row = 0; $row < 8; $row++){
-                echo "<tr>";
+        $board = [];
 
-                for($col = 0; $col < 8; $col++){
+        for($row = 0; $row < 8; $row++){
+            echo "<tr>";
 
-                    $squareClass = ($row + $col) % 2 == 0 ? "white" : "black";
-                    echo "<td class='$squareClass'>";
-                    echo "";
-                    echo "</td>";
-                }
+            for($col = 0; $col < 8; $col++){
+                // calculate board coordinates
+                $chessRow = 7 - $row;
+                $chessCol = chr(ord('A') + $col);
 
-                echo "</tr>";
+                $squareClass = ($chessRow + ord($chessCol)) % 2 == 0 ? "white" : "black";
+
+                echo "<td class='$squareClass'>";
+                echo $chessCol . ($chessRow + 1);
+                echo "</td>";
             }
+
+            echo "</tr>";
+        }
         ?>
     </table>
 </body>
