@@ -50,8 +50,6 @@
                                 $color = substr($pieceName, 0, 5) == "white" ? 0 : 1;
                                 $piece = $pieces[$color][$pieceName];
 
-                                echo $piece->getImage();
-                                
                                 if($piece->getX() == $chessCol && $piece->getY() == $chessRow){
                                     echo "<img src='" . $piece->getImage() . "' alt='" . $piece->getColor() . " " . $piece->getIdentifier() . "'>";
                                 }
