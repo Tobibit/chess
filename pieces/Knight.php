@@ -10,14 +10,14 @@
         public function __construct($color, $identifier, $x = null, $y = null) {
             $this->color = $color;
             $this->identifier = $identifier;
-            $this->x = $x ? $x : (substr($identifier, -1) == "1" ? 2 : 7);
+            $this->x = $x ? $x : (substr($identifier, -1) == "1" ? 1 : 6);
 
             if($color == "white"){
-                $this->y = $y ? $y : 1;
+                $this->y = $y ? $y : 0;
                 $this->image = "../images/white_knight.png";
             }
             else {
-                $this->y = $y ? $y : 8;
+                $this->y = $y ? $y : 7;
                 $this->image = "../images/black_knight.png";
             }
         }
