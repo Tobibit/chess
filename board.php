@@ -37,7 +37,9 @@
                         echo "<tr>";
 
                         for($col = 0; $col < 8; $col++){
-                            $squareClass = ($row + ord($col)) % 2 == 0 ? "white" : "black";
+                            $colBoard = $col;
+                            $rowBoard = 7 - $row;
+                            $squareClass = ($row + ord($col)) % 2 == 0 ? "black" : "white";
 
                             echo "<td class='$squareClass'>";
                             
@@ -45,8 +47,10 @@
                                 $color = substr($pieceName, 0, 5) == "white" ? 0 : 1;
                                 $piece = $pieces[$color][$pieceName];
 
-                                if($piece->getX() == $col && $piece->getY() == $row){
-                                    echo "<img src='" . $piece->getImage() . "' alt='" . $piece->getColor() . " " . $piece->getIdentifier() . "'>";
+                                if($piece->getX() == $colBoard && $piece->getY() == $rowBoard){
+                                    $image = $piece->getImage();
+                                    $altText = $piece->getColor() . " " . $piece->getIdentifier();
+                                    echo "<img src='$image' alt='$altText'>";
                                 }
                             }
                             echo "</td>";
