@@ -37,20 +37,15 @@
                         echo "<tr>";
 
                         for($col = 0; $col < 8; $col++){
-                            // calculate board coordinates
-                            $chessRow = 7 - $row;
-                            $chessCol = chr(ord('A') + $col);
-
-                            $squareClass = ($chessRow + ord($chessCol)) % 2 == 0 ? "white" : "black";
+                            $squareClass = ($row + ord($col)) % 2 == 0 ? "white" : "black";
 
                             echo "<td class='$squareClass'>";
-
                             
                             foreach($allPieces as $pieceName){
                                 $color = substr($pieceName, 0, 5) == "white" ? 0 : 1;
                                 $piece = $pieces[$color][$pieceName];
 
-                                if($piece->getX() == $chessCol && $piece->getY() == $chessRow){
+                                if($piece->getX() == $col && $piece->getY() == $row){
                                     echo "<img src='" . $piece->getImage() . "' alt='" . $piece->getColor() . " " . $piece->getIdentifier() . "'>";
                                 }
                             }
