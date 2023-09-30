@@ -15,7 +15,7 @@
                     include_once("./notationTranslation.php");
                     include_once("./startPosition.php");
 
-                    $pieces = array("Rook", "Knight", "Bishop", "Queen", "King", "Pawn");
+                    $pieces = array("Rook", "Knight", "Bishop", "Queen", "King", "Pawn", "Game");
                     foreach($pieces as $piece) {
                         include_once "./classes/$piece.php";
                     }
@@ -25,6 +25,7 @@
                     Ranks = Rows = Y
                     */
                     $pieces = startPosition();
+                    $game = new Game();
                     $board = [];
 
                     $allPieces = ["white_Rook1", "white_Knight1", "white_Bishop1", "white_Queen", "white_King", "white_Bishop2", "white_Knight", "white_Rook2", 

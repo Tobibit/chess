@@ -1,4 +1,6 @@
 <?php
+    include_once("./classFunctions.php");
+
     function movement_rook($currentY, $currentX) {
         $validMoves = [];
 
