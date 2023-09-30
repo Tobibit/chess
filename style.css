@@ -38,10 +38,8 @@ body {
     box-shadow: 20px 20px 75px red;
 }
 
-.big-button:hover {
-    background-color: lightcoral;
-    color: rgba(17, 17, 17, 0.9);
-    box-shadow: -20px -20px 75px red;
+.big-button:active {
+    transform: translate(10px, 10px); /* Move the button down and to the right when pressed */
 }
 
 /* Board */
