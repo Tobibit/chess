@@ -51,7 +51,7 @@
                                 if($piece->getX() == $colBoard && $piece->getY() == $rowBoard){
                                     $image = getImage($piece);
                                     $altText = getColor($piece) . " " . getIdentifier($piece);
-                                    echo "<img src='../images/white_bishop.png' alt='$altText'>";
+                                    echo "<img src='$image' alt='$altText'>";
                                 }
                             }
                             echo "</td>";

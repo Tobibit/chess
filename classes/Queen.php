@@ -14,11 +14,11 @@
 
             if($color == "white"){
                 $this->y = $y ? $y : 0;
-                $this->image = "../images/white_queen.png";
+                $this->image = "./images/white_queen.png";
             }
             else {
                 $this->y = $y ? $y : 7;
-                $this->image = "../images/black_queen.png";
+                $this->image = "./images/black_queen.png";
             }
         }
 
