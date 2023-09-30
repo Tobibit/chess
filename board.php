@@ -24,7 +24,7 @@
                     Files = Columns = X
                     Ranks = Rows = Y
                     */
-                    $pieces = startPosition();
+                    
                     $game = new Game();
                     $board = [];
 
@@ -46,12 +46,12 @@
                             
                             foreach($allPieces as $pieceName){
                                 $color = substr($pieceName, 0, 5) == "white" ? 0 : 1;
-                                $piece = $pieces[$color][$pieceName];
+                                $piece = getPieces($game)[$color][$pieceName];
 
                                 if($piece->getX() == $colBoard && $piece->getY() == $rowBoard){
-                                    $image = $piece->getImage();
-                                    $altText = $piece->getColor() . " " . $piece->getIdentifier();
-                                    echo "<img src='$image' alt='$altText'>";
+                                    $image = getImage($piece);
+                                    $altText = getColor($piece) . " " . getIdentifier($piece);
+                                    echo "<img src='../images/white_bishop.png' alt='$altText'>";
                                 }
                             }
                             echo "</td>";
