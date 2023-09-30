@@ -6,19 +6,32 @@
     
         // Create pieces for white and black
         $colors = ["white", "black"];
-        $pieceNames = ["Rook1", "Knight1", "Bishop1", "Queen", "King", "Bishop2", "Knight2", "Rook2"];
+        $pieceTypes = ["Rook", "Knight", "Bishop", "Queen", "King"];
         $pawnNames = ["Pawn1", "Pawn2", "Pawn3", "Pawn4", "Pawn5", "Pawn6", "Pawn7", "Pawn8"];
     
         foreach ($colors as $color) {
-            foreach ($pieceNames as $name) {
-                $pieces[$color . "_" . $name] = new $name($color, strtolower($name));
+            foreach ($pieceTypes as $type) {
+                if($type === "King" || $type === "Queen"){
+                    // one
+                    $name = $type;
+                    $pieceInstance = new $name($color, strtolower($name));
+                    $pieces[$color . "_" . $name] = $pieceInstance;
+                } else {
+                    // two
+                    for($i = 1; $i <= 2; $i++){
+                        $name = $type . $i;
+                        $pieceInstance = new $type($color, strtolower($name));
+                        $pieces[$color . "_" . $name] = $pieceInstance;
+                    }
+                }
             }
     
             foreach ($pawnNames as $name) {
-                $pieces[$color . "_" . $name] = new Pawn($color, strtolower($name));
+                $pieceInstance = new Pawn($color, strtolower($name));
+                $pieces[$color . "_" . $name] = $pieceInstance;
             }
         }
-    
+        //var_dump($pieces);
         return $pieces;
     }    
 ?>
