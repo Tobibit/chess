@@ -1,8 +1,5 @@
 <?php
-    $pieces = array("Rook", "Knight", "Bishop", "Queen", "King", "Pawn");
-    foreach($pieces as $piece) {
-        include_once "./classes/$piece.php";
-    }
+    include_once "./includes.php";
 
     function startPosition() {
         $pieces = array([

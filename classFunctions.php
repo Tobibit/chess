@@ -1,8 +1,5 @@
 <?php
-    $pieces = array("Rook", "Knight", "Bishop", "Queen", "King", "Pawn", "Game");
-    foreach($pieces as $piece) {
-        include_once "./classes/$piece.php";
-    }
+    include_once "./includes.php";
 
     // pieces
     function getX($piece) {
