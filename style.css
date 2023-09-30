@@ -1,6 +1,6 @@
 /* black and white classes */
 body {
-    background-color: #ccc;
+    background-color: #a0a0a0;
 }
 
 .black {
@@ -29,15 +29,19 @@ body {
 .big-button {
     padding: 100px 200px;
     font-size: 100px;
-    background-color: #3498db;
-    color: #fff;
+    background-color: rgba(17, 17, 17, 0.9);
+    color: red;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    overflow: hidden;
+    box-shadow: 20px 20px 75px red;
 }
 
 .big-button:hover {
-    background-color: #2980b9;
+    background-color: lightcoral;
+    color: rgba(17, 17, 17, 0.9);
+    box-shadow: -20px -20px 75px red;
 }
 
 /* Board */
@@ -64,7 +68,7 @@ body {
 }
 
 .boardTable td {
-    border: 1px solid #ccc; /* Add borders to table cells */
-    padding: 40px; /* Adjust cell padding as needed */
-    text-align: center; /* Center content in cells */
+    border: 1px solid #ccc;
+    padding: 40px;
+    text-align: center;
 }
