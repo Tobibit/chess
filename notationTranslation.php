@@ -14,8 +14,23 @@
 
     function coordinatesToAlgebraic($x, $y) {
         // convert x to letter
-        $colLetter = chr($x + ord('a'));
+        $x = strtoupper($x);
+        $colLetter = ord($x) - ord('A') + 1;
 
+        /*
+        $letterNumberMap = [
+            'A' => 0,
+            'B' => 1,
+            'C' => 2,
+            'D' => 3,
+            'E' => 4,
+            'F' => 5,
+            'G' => 6,
+            'H' => 7
+        ];
+        $colLetter = $letterNumberMap[$x];
+        */
+        
         // convert y to number
         $rowNumber = $y + 1; // 1-based indexing
 
