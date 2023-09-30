@@ -13,27 +13,17 @@
     }
 
     function coordinatesToAlgebraic($x, $y) {
-        // convert x to letter
-        $x = strtoupper($x);
-        $colLetter = ord($x) - ord('A') + 1;
-
-        /*
-        $letterNumberMap = [
-            'A' => 0,
-            'B' => 1,
-            'C' => 2,
-            'D' => 3,
-            'E' => 4,
-            'F' => 5,
-            'G' => 6,
-            'H' => 7
+        $letters = [
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'
         ];
-        $colLetter = $letterNumberMap[$x];
-        */
+
+        // convert x to letter
+        $colLetter = $letters[$x];
         
         // convert y to number
         $rowNumber = $y + 1; // 1-based indexing
 
-        return $colLetter . $rowNumber;
+        $notation = $colLetter . $rowNumber;
+        return $notation;
     }
 ?>

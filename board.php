@@ -44,7 +44,8 @@
                                     $image = getImage($piece);
                                     $altText = getColor($piece) . " " . getIdentifier($piece);
                                     echo "<img height='40px' width='40px' src='$image' alt='$altText'>";
-                                    echo $colBoard . ", " . $rowBoard;
+                                    echo $colBoard . ", " . $rowBoard . "<br>";
+                                    echo coordinatesToAlgebraic($colBoard, $rowBoard) . "<br>";
                                 }
                             }
                             echo "</td>";
