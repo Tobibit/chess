@@ -1,27 +1,27 @@
 <?php
     include_once "./includes.php";
 
-    function movement_rook($currentY, $currentX) {
+    function movement_rook($currentX, $currentY) {
         $validMoves = [];
 
         // horizontally
         for($y = 0; $y < 8; $y++){
             if($y == $currentY){
-                $validMoves[] = [$y, $currentX];
+                $validMoves[] = [$currentX, $y];
             }
         }
 
         // vertically
         for($x = 0; $x < 8; $x++){
             if($x == $currentX){
-                $validMoves[] = [$currentY, $x];
+                $validMoves[] = [$x, $currentY];
             }
         }
 
         return $validMoves;
     }
 
-    function movement_bishop($currentY, $currentX) {
+    function movement_bishop($currentX, $currentY) {
         $validMoves = [];
 
         // 4 directions
@@ -39,7 +39,7 @@
 
                 // check if move is on the board 
                 if($newY >= 0 && $newY < 8 && $newX >= 0 && $newX < 8){
-                    $validMoves[] = [$newY, $newX];
+                    $validMoves[] = [$newX, $newY];
                 }
             }
         }
@@ -47,7 +47,7 @@
         return $validMoves;
     }
 
-    function movement_knight($currentY, $currentX) {
+    function movement_knight($currentX, $currentY) {
         $validMoves = [];
 
         // knight moves
@@ -64,21 +64,21 @@
 
             // check if move is on the board
             if($newY >= 0 && $newY < 8 && $newX >= 0 && $newX < 8){
-                $validMoves[] = [$newY, $newX];
+                $validMoves[] = [$newX, $newY];
             }
         }
 
         return $validMoves;
     }
 
-    function movement_queen($currentY, $currentX) {
-        $rookMoves = movement_rook($currentY, $currentX);
-        $bishopMoves = movement_bishop($currentY, $currentX);
+    function movement_queen($currentX, $currentY) {
+        $rookMoves = movement_rook($currentX, $currentY);
+        $bishopMoves = movement_bishop($currentX, $currentY);
 
         return array_merge($rookMoves, $bishopMoves);
     }
 
-    function movement_king($currentY, $currentX) {
+    function movement_king($currentX, $currentY) {
         $validMoves = [];
 
         // one square in every direction
@@ -94,26 +94,26 @@
 
             // check if move is on the board
             if($newY >= 0 && $newY < 8 && $newX >= 0 && $newX < 8){
-                $validMoves[] = [$newY, $newX];
+                $validMoves[] = [$newX, $newY];
             }
         }
 
         return $validMoves;
     }
 
-    function movement_pawn($currentY, $currentX, $firstMove = false) {
+    function movement_pawn($currentX, $currentY, $firstMove = false) {
         $validMoves = [];
 
         // moves
         $moves = $firstMove ? [[-1, 0], [-2, 0]] : [[-1, 0], [-1, -1], [-1, 1]];
 
         foreach($moves as $move){
-            $newY = $currentY + $move[0];
-            $newX = $currentX + $move[1];
+            $newY = $currentX + $move[0];
+            $newX = $currentY + $move[1];
 
             // check if move is on the board
             if($newY >= 0 && $newY < 8 && $newX >= 0 && $newX < 8){
-                $validMoves[] = [$newY, $newX];
+                $validMoves[] = [$newX, $newY];
             }
         }
 
@@ -126,5 +126,13 @@
         if(in_array([$newX, $newY], $movement($curX, $curY))){
             return true;
         }
+
+        return false;
+    }
+
+    function getValidMoves($piece, $curX, $curY) {
+        $movement = "movement_" . $piece;
+
+        return $movement($curX, $curY);
     }
 ?>
