@@ -33,7 +33,7 @@
                         for($col = 0; $col < 8; $col++){
                             $colBoard = $col;
                             $rowBoard = 7 - $row;
-                            $squareClass = ($row + ord($col)) % 2 == 0 ? "black" : "white";
+                            $squareClass = ($row + ord($col)) % 2 == 0 ? "white" : "black";
 
                             echo "<td class='$squareClass'>";
                             
