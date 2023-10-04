@@ -13,15 +13,15 @@
             foreach ($pieceTypes as $type) {
                 if($type === "King" || $type === "Queen"){
                     // one
-                    $name = $type;
-                    $pieceInstance = new $name($color, strtolower($name));
-                    $pieces[$color . "_" . $name] = $pieceInstance;
+                    $name = $color . "_" . $type;
+                    $pieceInstance = new $type($color, strtolower($name));
+                    $pieces[$name] = $pieceInstance;
                 } else {
                     // two
                     for($i = 1; $i <= 2; $i++){
-                        $name = $type . $i;
+                        $name = $color . "_" . $type . $i;
                         $pieceInstance = new $type($color, strtolower($name));
-                        $pieces[$color . "_" . $name] = $pieceInstance;
+                        $pieces[$name] = $pieceInstance;
                     }
                 }
             }
