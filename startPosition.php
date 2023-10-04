@@ -27,6 +27,7 @@
             }
     
             foreach ($pawnNames as $name) {
+                $name = $color . "_" . $name;
                 $pieceInstance = new Pawn($color, strtolower($name));
                 $pieces[$color . "_" . $name] = $pieceInstance;
             }

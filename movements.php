@@ -101,17 +101,43 @@
         return $validMoves;
     }
 
-    function movement_pawn($currentX, $currentY, $firstMove = false) {
+    function movement_pawn($pawnIdentifier, $currentX, $currentY) {
         $validMoves = [];
 
+        // get color of pawn
+        $color = substr($pawnIdentifier, 0, 5);
+
+        // get first move
+        if($color == "white"){
+            $firstMove = $currentY == 1 ? true : false;
+        } else {
+            $firstMove = $currentY == 6 ? true : false;
+        }
+
+        // move up or down
+        $direction = $color == "white" ? 1 : -1;
+
         // moves
-        $moves = $firstMove ? [[-1, 0], [-2, 0]] : [[-1, 0], [-1, -1], [-1, 1]];
+        $newX = $currentX;
+        $newY = $currentY + $direction * 1;
+        if ($newY >= 0 && $newY < 8) {
+            $validMoves[] = [$newX, $newY];
+        }
+        if ($firstMove) {
+            $newY = $currentY + $direction * 2; 
+            if ($newY >= 0 && $newY < 8) {
+                $validMoves[] = [$newX, $newY];
+            }
+        }
 
-        foreach($moves as $move){
-            $newY = $currentX + $move[0];
-            $newX = $currentY + $move[1];
+        $captures = [
+            //[$currentX + $direction, $currentY + $direction],
+            //[$currentX + $direction, $currentY - $direction],
+        ];
 
-            // check if move is on the board
+        foreach($captures as $move){
+            $newX = $move[0];
+            $newY = $move[1];
             if($newY >= 0 && $newY < 8 && $newX >= 0 && $newX < 8){
                 $validMoves[] = [$newX, $newY];
             }
@@ -130,9 +156,21 @@
         return false;
     }
 
+    function isValidPawn($pawnIdentifier, $curX, $curY, $newX, $newY) {
+        if(in_array([$newX, $newY], movement_pawn($pawnIdentifier, $curX, $curY))){
+            return true;
+        }
+
+        return false;
+    }
+
     function getValidMoves($piece, $curX, $curY) {
         $movement = "movement_" . $piece;
 
         return $movement($curX, $curY);
+    }
+
+    function getValidMovesPawn($pawnIdentifier, $curX, $curY){
+        return movement_pawn($pawnIdentifier, $curX, $curY);
     }
 ?>

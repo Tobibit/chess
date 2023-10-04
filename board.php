@@ -39,7 +39,7 @@
                                 if($piece->getX() == $colBoard && $piece->getY() == $rowBoard){
                                     $image = getImage($piece);
                                     $altText = getIdentifier($piece);
-                                    //echo $altText . "<br>";
+                                    echo $altText . "<br>";
                                     //echo getIdentifier($piece) . "<br>";
                                     //echo "Piece: $piece, CurrentX: $curX, CurrentY: $curY <br>";
                                     //echo "Col / X" . $colBoard . ", " . "Row / Y:" . $rowBoard . "<br>";

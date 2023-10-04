@@ -21,10 +21,11 @@ pieces.forEach(piece => {
         piece.classList.add('piece-clicked');
         currentlyClickedPiece = piece;
 
+        const pieceIdentifier = piece.getAttribute('alt');
         const pieceName = piece.getAttribute('alt').replace(/^black_|^white_/, '').replace(/\d*$/, '');
         const [pieceX, pieceY] = piecePositionFromDOM(piece);
 
-        getValidMoves(pieceName, pieceX, pieceY)
+        getValidMoves(pieceIdentifier, pieceName, pieceX, pieceY)
             .then(validMoves => {
                 console.log('Valid Moves:', validMoves); // DEBUG
                 validMoves.forEach(move => {
@@ -47,13 +48,14 @@ function piecePositionFromDOM(piece) {
     return [parseInt(x), parseInt(y)];
 }
 
-function getValidMoves(pieceName, pieceX, pieceY) {
+function getValidMoves(pieceIdentifier, pieceName, pieceX, pieceY) {
     return fetch('getValidMoves.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            pieceIdentifier,
             pieceName,
             pieceX,
             pieceY,
@@ -62,6 +64,7 @@ function getValidMoves(pieceName, pieceX, pieceY) {
     })
         .then(response => {
             console.log('Sending JSON Data:', JSON.stringify({
+                pieceIdentifier,
                 pieceName,
                 pieceX,
                 pieceY,
