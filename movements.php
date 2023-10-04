@@ -4,16 +4,16 @@
     function movement_rook($currentX, $currentY) {
         $validMoves = [];
 
-        // horizontally
+        // ranks
         for($y = 0; $y < 8; $y++){
-            if($y == $currentY){
+            if($y != $currentY){
                 $validMoves[] = [$currentX, $y];
             }
         }
 
-        // vertically
+        // files
         for($x = 0; $x < 8; $x++){
-            if($x == $currentX){
+            if($x != $currentX){
                 $validMoves[] = [$x, $currentY];
             }
         }
