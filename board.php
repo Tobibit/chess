@@ -31,14 +31,18 @@
                             $rowBoard = 7 - $row;
                             $squareClass = ($row + ord($col)) % 2 == 0 ? "white" : "black";
 
-                            echo "<td class='$squareClass'>";
+                            echo "<td class='$squareClass' data-x='$colBoard' data-y='$rowBoard'>";
                             
                             foreach($allPieces as $pieceName => $pieceInstance){
                                 $piece = $allPieces[$pieceName];
 
                                 if($piece->getX() == $colBoard && $piece->getY() == $rowBoard){
                                     $image = getImage($piece);
-                                    $altText = getColor($piece) . " " . getIdentifier($piece);
+                                    $altText = getIdentifier($piece);
+                                    //echo $altText . "<br>";
+                                    //echo getIdentifier($piece) . "<br>";
+                                    //echo "Piece: $piece, CurrentX: $curX, CurrentY: $curY <br>";
+                                    //echo "Col / X" . $colBoard . ", " . "Row / Y:" . $rowBoard . "<br>";
                                     echo "<img height='40px' width='40px' src='$image' alt='$altText'>";
                                     echo $colBoard . ", " . $rowBoard . "<br>";
                                     echo coordinatesToAlgebraic($colBoard, $rowBoard) . "<br>";

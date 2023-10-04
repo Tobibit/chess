@@ -75,3 +75,7 @@ body {
 .piece-clicked {
     border: 5px solid yellow;
 }
+
+.valid-move {
+    background-color: yellow;
+}
