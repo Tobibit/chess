@@ -39,7 +39,7 @@ body {
 }
 
 .big-button:active {
-    transform: translate(10px, 10px); /* Move the button down and to the right when pressed */
+    transform: translate(10px, 10px);
 }
 
 /* Board */
@@ -69,4 +69,9 @@ body {
     border: 1px solid #ccc;
     padding: 40px;
     text-align: center;
+}
+
+/* piece clicked */
+.piece-clicked {
+    border: 5px solid yellow;
 }

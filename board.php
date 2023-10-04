@@ -21,11 +21,7 @@
                     $game = new Game();
                     $board = [];
 
-                    $allPieces = ["white_Rook1", "white_Knight1", "white_Bishop1", "white_Queen", "white_King", "white_Bishop2", "white_Knight2", "white_Rook2", 
-                            "white_Pawn1", "white_Pawn2", "white_Pawn3", "white_Pawn4", "white_Pawn5", "white_Pawn6", "white_Pawn7", "white_Pawn8", 
-                            "black_Rook1", "black_Knight1", "black_Bishop1", "black_Queen", "black_King", "black_Bishop2", "black_Knight2", "black_Rook2", 
-                            "black_Pawn1", "black_Pawn2", "black_Pawn3", "black_Pawn4", "black_Pawn5", "black_Pawn6", "black_Pawn7", "black_Pawn8"
-                    ];
+                    $allPieces = $game->getPieces();
 
                     for($row = 0; $row < 8; $row++){
                         echo "<tr>";
@@ -37,8 +33,8 @@
 
                             echo "<td class='$squareClass'>";
                             
-                            foreach($allPieces as $pieceName){
-                                $piece = getPieces($game)[$pieceName];
+                            foreach($allPieces as $pieceName => $pieceInstance){
+                                $piece = $allPieces[$pieceName];
 
                                 if($piece->getX() == $colBoard && $piece->getY() == $rowBoard){
                                     $image = getImage($piece);
@@ -57,5 +53,6 @@
             </table>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
