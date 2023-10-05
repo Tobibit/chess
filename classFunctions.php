@@ -55,10 +55,6 @@
         return $game->getIsDraw();
     }   
 
-    function getFirstMove($game){
-        return $game->getFirstMove();
-    }
-
     function getPieces($game){
         return $game->getPieces();
     }

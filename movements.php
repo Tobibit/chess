@@ -1,27 +1,52 @@
 <?php
     include_once "./includes.php";
 
-    function movement_rook($currentX, $currentY) {
+    function movement_rook($currentX, $currentY, $game) {
         $validMoves = [];
+        $rookColor = getPieceAtPosition([$currentX, $currentY], $game)->getColor();
 
         // ranks
         for($y = 0; $y < 8; $y++){
             if($y != $currentY){
-                $validMoves[] = [$currentX, $y];
+                $potentialMove = [$currentX, $y];
+                $targetColor = getPieceAtPosition($potentialMove, $game)->getColor();
+
+                if(empty($targetColor) || $targetColor !== $rookColor){
+                    // square is empty or an opponent piece
+                    $validMoves[] = $potentialMove;
+                    break;
+                }
+                
+                if(!empty($targetColor) && $targetColor === $rookColor){
+                    // square has piece of the same color
+                    break;
+                }
             }
         }
 
         // files
         for($x = 0; $x < 8; $x++){
             if($x != $currentX){
-                $validMoves[] = [$x, $currentY];
+                $potentialMove = [$x, $currentY];
+                $targetColor = getPieceAtPosition($potentialMove, $game)->getColor();
+
+                if(empty($targetColor) || $targetColor !== $rookColor){
+                    // square is empty or an opponent piece
+                    $validMoves[] = $potentialMove;
+                    break;
+                }
+
+                if(!empty($targetColor) && $targetColor === $rookColor){
+                    // square has piece of the same color
+                    break;
+                }
             }
         }
-
+ 
         return $validMoves;
     }
 
-    function movement_bishop($currentX, $currentY) {
+    function movement_bishop($currentX, $currentY, $game) {
         $validMoves = [];
 
         // 4 directions
@@ -47,7 +72,7 @@
         return $validMoves;
     }
 
-    function movement_knight($currentX, $currentY) {
+    function movement_knight($currentX, $currentY, $game) {
         $validMoves = [];
 
         // knight moves
@@ -71,14 +96,14 @@
         return $validMoves;
     }
 
-    function movement_queen($currentX, $currentY) {
-        $rookMoves = movement_rook($currentX, $currentY);
-        $bishopMoves = movement_bishop($currentX, $currentY);
+    function movement_queen($currentX, $currentY, $game) {
+        $rookMoves = movement_rook($currentX, $currentY, $game);
+        $bishopMoves = movement_bishop($currentX, $currentY, $game);
 
         return array_merge($rookMoves, $bishopMoves);
     }
 
-    function movement_king($currentX, $currentY) {
+    function movement_king($currentX, $currentY, $game) {
         $validMoves = [];
 
         // one square in every direction
@@ -101,7 +126,7 @@
         return $validMoves;
     }
 
-    function movement_pawn($pawnIdentifier, $currentX, $currentY) {
+    function movement_pawn($pawnIdentifier, $currentX, $currentY, $game) {
         $validMoves = [];
 
         // get color of pawn
@@ -146,31 +171,43 @@
         return $validMoves;
     }
 
-    function isValid($piece, $curX, $curY, $newX, $newY) {
+    function getPieceAtPosition($coordinates, $game) {
+        $x = $coordinates[0];
+        $y = $coordinates[1];
+
+        // $game has every piece instance in it, not game class
+        foreach($game as $pieceName => $pieceInstance){
+            if($pieceInstance->getX() == $x && $pieceInstance->getY() == $y){
+                return $pieceInstance;
+            }
+        }
+    }
+
+    function isValid($piece, $curX, $curY, $newX, $newY, $game) {
         $movement = "movement_" . $piece;
 
-        if(in_array([$newX, $newY], $movement($curX, $curY))){
+        if(in_array([$newX, $newY], $movement($curX, $curY, $game))){
             return true;
         }
 
         return false;
     }
 
-    function isValidPawn($pawnIdentifier, $curX, $curY, $newX, $newY) {
-        if(in_array([$newX, $newY], movement_pawn($pawnIdentifier, $curX, $curY))){
+    function isValidPawn($pawnIdentifier, $curX, $curY, $newX, $newY, $game) {
+        if(in_array([$newX, $newY], movement_pawn($pawnIdentifier, $curX, $curY, $game))){
             return true;
         }
 
         return false;
     }
 
-    function getValidMoves($piece, $curX, $curY) {
+    function getValidMoves($piece, $curX, $curY, $game) {
         $movement = "movement_" . $piece;
 
-        return $movement($curX, $curY);
+        return $movement($curX, $curY, $game);
     }
 
-    function getValidMovesPawn($pawnIdentifier, $curX, $curY){
-        return movement_pawn($pawnIdentifier, $curX, $curY);
+    function getValidMovesPawn($pawnIdentifier, $curX, $curY, $game){
+        return movement_pawn($pawnIdentifier, $curX, $curY, $game);
     }
 ?>

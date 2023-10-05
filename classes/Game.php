@@ -1,7 +1,6 @@
 <?php
     require_once("./movements.php");
     class Game {
-        private $firstMove;
         private $isCheck;
         private $isCheckmate;
         private $isDraw;
@@ -10,7 +9,6 @@
         
         public function __construct() {
             $this->pieces = startPosition();
-            $this->firstMove = true;
             $this->isCheck = false;
             $this->isCheckmate = false;
             $this->isDraw = false;
@@ -22,7 +20,7 @@
             $king = $this->pieces[$this->whoseTurn . "_King"];
             $pieces = $this->pieces;
             foreach($pieces as $pieceName => $pieceInstance) {
-                if(isValid($pieceInstance, $pieceInstance->getX(), $pieceInstance->getY(), $king->getX(), $king->getY())) {
+                if(isValid($pieceInstance, $pieceInstance->getX(), $pieceInstance->getY(), $king->getX(), $king->getY(), $this->pieces)) {
                     $this->isCheck = true;
                     break;
                 }
@@ -132,10 +130,6 @@
 
         public function getIsDraw() {
             return $this->isDraw;
-        }
-
-        public function getFirstMove() {
-            return $this->firstMove;
         }
 
         public function getPieces() {

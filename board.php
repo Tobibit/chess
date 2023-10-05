@@ -19,9 +19,13 @@
                     */
                     
                     $game = new Game();
+                    session_start();
+
                     $board = [];
 
                     $allPieces = $game->getPieces();
+
+                    $_SESSION["game"] = $allPieces;
 
                     for($row = 0; $row < 8; $row++){
                         echo "<tr>";
@@ -39,10 +43,11 @@
                                 if($piece->getX() == $colBoard && $piece->getY() == $rowBoard){
                                     $image = getImage($piece);
                                     $altText = getIdentifier($piece);
-                                    echo $altText . "<br>";
+                                    //echo $altText . "<br>";
                                     //echo getIdentifier($piece) . "<br>";
                                     //echo "Piece: $piece, CurrentX: $curX, CurrentY: $curY <br>";
                                     //echo "Col / X" . $colBoard . ", " . "Row / Y:" . $rowBoard . "<br>";
+                                    //print_r($allPieces);
                                     echo "<img height='40px' width='40px' src='$image' alt='$altText'>";
                                     echo $colBoard . ", " . $rowBoard . "<br>";
                                     echo coordinatesToAlgebraic($colBoard, $rowBoard) . "<br>";
