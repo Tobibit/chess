@@ -1,6 +1,30 @@
 let currentlyClickedPiece = null;
 const pieces = document.querySelectorAll('.boardTable td img');
 
+function handleValidMoveClick(square, piece) {
+    if(currentlyClickedPiece !== null) {
+        // get position of clicked square 
+        const squareX = square.getAttribute('data-x');
+        console.log(`Square X: ${squareX}`); // DEBUG
+        const squareY = square.getAttribute('data-y');
+        console.log(`Square Y: ${squareY}`); // DEBUG
+
+        // update piece position
+        currentlyClickedPiece.parentElement.removeAttribute('data-x');
+        currentlyClickedPiece.parentElement.removeAttribute('data-y');
+        console.log(`Piece X: ${currentlyClickedPiece.parentElement.getAttribute('data-x')}`); // DEBUG
+        console.log(`Piece Y: ${currentlyClickedPiece.parentElement.getAttribute('data-y')}`); // DEBUG
+        square.setAttribute('data-x', squareX);
+        square.setAttribute('data-y', squareY);
+        square.appendChild(currentlyClickedPiece);
+
+        // clear move highlights
+        clearValidMoves();
+        currentlyClickedPiece.classList.remove('piece-clicked');
+        currentlyClickedPiece = null;
+    }
+}
+
 pieces.forEach(piece => {
     piece.addEventListener('click', () => {
         if (currentlyClickedPiece !== null && piece === currentlyClickedPiece) {
@@ -21,6 +45,7 @@ pieces.forEach(piece => {
         piece.classList.add('piece-clicked');
         currentlyClickedPiece = piece;
 
+
         const pieceIdentifier = piece.getAttribute('alt');
         const pieceName = piece.getAttribute('alt').replace(/^black_|^white_/, '').replace(/\d*$/, '');
         const [pieceX, pieceY] = piecePositionFromDOM(piece);
@@ -31,6 +56,10 @@ pieces.forEach(piece => {
                 validMoves.forEach(move => {
                     const cell = document.querySelector(`.boardTable td[data-x="${move[0]}"][data-y="${move[1]}"]`);
                     cell.classList.add('valid-move');
+
+                    cell.addEventListener('click', () => {
+                        handleValidMoveClick(cell, piece);
+                    });
                 });
             })
             .catch(error => {
@@ -80,5 +109,6 @@ function clearValidMoves() {
     const cells = document.querySelectorAll('.boardTable td.valid-move');
     cells.forEach(cell => {
         cell.classList.remove('valid-move');
+        cell.removeEventListener('click', handleValidMoveClick);
     });
 }
