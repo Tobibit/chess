@@ -22,7 +22,35 @@ function handleValidMoveClick(square, piece) {
         clearValidMoves();
         currentlyClickedPiece.classList.remove('piece-clicked');
         currentlyClickedPiece = null;
+
+        // update underlying piece data in js data structure
+        const pieceIdentifier = piece.getAttribute('alt');
+        const pieceObject = findPieceByIdentifier(pieceIdentifier);
+        if(pieceObject){
+            pieceObject.setX(squareX);
+            pieceObject.setY(squareY);
+        }
     }
+}
+
+async function findPieceByIdentifier(identifier) {
+    try {
+        const response = await fetch('getGameData.php');
+        if(!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const allPieces = await response.json();
+
+        for(const piece of allPieces) {
+            if(piece.getIdentifier() === identifier) {
+                return piece;
+            }
+        }
+    } catch(error) {
+        console.error('Error:', error);
+    }
+
+    return null;
 }
 
 pieces.forEach(piece => {

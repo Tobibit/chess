@@ -48,7 +48,7 @@
                                     //echo "Piece: $piece, CurrentX: $curX, CurrentY: $curY <br>";
                                     //echo "Col / X" . $colBoard . ", " . "Row / Y:" . $rowBoard . "<br>";
                                     //print_r($allPieces);
-                                    echo "<img height='40px' width='40px' src='$image' alt='$altText'>";
+                                    echo "<img height='40px' width='40px' src='$image' alt='$altText' data-piece-identifier='$altText'>";
                                     echo $colBoard . ", " . $rowBoard . "<br>";
                                     echo coordinatesToAlgebraic($colBoard, $rowBoard) . "<br>";
                                 }

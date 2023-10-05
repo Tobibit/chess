@@ -21,6 +21,14 @@
                 $this->image = "./images/black_king.png";
             }
         }
+        
+        public function setX($x) {
+            $this->x = $x;
+        }
+
+        public function setY($y) {
+            $this->y = $y;
+        }
 
         public function getX() {
             return $this->x;
