@@ -22,17 +22,18 @@ function handleValidMoveClick(square, piece) {
         clearValidMoves();
         currentlyClickedPiece.classList.remove('piece-clicked');
         currentlyClickedPiece = null;
-
-        // update underlying piece data in js data structure
+        /*
+        // update underlying piece data
         const pieceIdentifier = piece.getAttribute('alt');
         const pieceObject = findPieceByIdentifier(pieceIdentifier);
         if(pieceObject){
             pieceObject.setX(squareX);
             pieceObject.setY(squareY);
         }
+        */
     }
 }
-
+/*
 async function findPieceByIdentifier(identifier) {
     try {
         const response = await fetch('getGameData.php');
@@ -52,15 +53,19 @@ async function findPieceByIdentifier(identifier) {
 
     return null;
 }
-
+*/
 pieces.forEach(piece => {
     piece.addEventListener('click', () => {
         if (currentlyClickedPiece !== null && piece === currentlyClickedPiece) {
+            
             // If the same piece is clicked again, toggle off the 'piece-clicked' class
             piece.classList.toggle('piece-clicked');
             clearValidMoves(); // Clear valid moves for this piece
             currentlyClickedPiece = null;
             return; // Exit the function
+            
+           piece.classList.add('piece-clicked');
+           currentlyClickedPiece = piece;
         }
 
         // Remove 'piece-clicked' class from the previously clicked piece, if any
@@ -72,7 +77,7 @@ pieces.forEach(piece => {
         // Add 'piece-clicked' class to the newly clicked piece
         piece.classList.add('piece-clicked');
         currentlyClickedPiece = piece;
-
+        
 
         const pieceIdentifier = piece.getAttribute('alt');
         const pieceName = piece.getAttribute('alt').replace(/^black_|^white_/, '').replace(/\d*$/, '');
