@@ -24,7 +24,7 @@
                 "isDefault": false
             },
         },
-        */
+        /*/
         {
             "label": "build",
             "type": "shell",
