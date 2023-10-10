@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <title>Choose Mode</title>
+</head>
+<body>
+    <div class="leftSide">
+        <h2>Play against Engine</h2>
+        <span><b>Description:</b><br>=> Play against an Engine with the following settings</span>
+        <br><br>
+
+        <form class='formEngine' action="playEngine.html" method="POST">
+            <label for="engineStrength">Engine Strength:</label><br>
+            <input type="radio" id="engineStrength" name="engineStrength" value="Easy">Easy (Depth x)<br>
+            <input type="radio" id="engineStrength" name="engineStrength" value="Medium">Medium (Depth x)<br>
+            <input type="radio" id="engineStrength" name="engineStrength" value="Hard">Hard (Depth x)<br>
+            <input type="radio" id="engineStrength" name="engineStrength" value="Perfect" checked>Perfect Play
+            <br><br>
+            <label for="orientation">Play as</label><br>
+            <input type="radio" id="orientation" name="orientation" value="White" checked>White<br>
+            <input type="radio" id="orientation" name="orientation" value="Black">Black
+            <br><br>
+            <label for="notation">Enable Notation (Square Names):</label><br>
+            <input type="radio" id="notation" name="notation" value="on" checked>On<br>
+            <input type="radio" id="notation" name="notation" value="off">Off
+            <br><br>
+            <label for="pieceTheme">Piece Theme</label><br>
+            <input type="radio" id="pieceTheme" name="pieceTheme" value="default" checked>Default<br>
+            <input type="radio" id="pieceTheme" name="pieceTheme" value="derangedHorsey">Default but deranged Horsey<br>
+            <br><br>
+            <input class="small-button" type="submit" value="Play">
+        </form>
+    </div>
+    <div class="rightSide">
+        <h2>Create Custom Position</h2>
+        <span><b>Description:</b><br>=> Engine will show you the best move from any position<br>=> You can play with odds</span>
+        <br><br>
+
+        <form class="" action="customPosition.html" method="POST">
+            <input class="small-button" type="submit" value="Create Custom Position">
+        </form>
+    </div>
+</body>
+</html>

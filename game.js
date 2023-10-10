@@ -5,7 +5,7 @@ function pieceTheme(piece, input) {
         case 'derangedHorsey': 
             return './assets/pieceThemes/derangedHorsey/' + piece + '.png'; 
         // add cases
-        default: return './assets/pieceThemes/standard/' + piece + '.png';
+        default: return './assets/pieceThemes/default/' + piece + '.png';
     }
 }
 
@@ -15,6 +15,7 @@ var configCustom = {
     showNotation: true,
     dropOffBoard: 'trash',
     pieceTheme: pieceTheme,
+    sparePieces: true,
 }
 
 var configGame = {

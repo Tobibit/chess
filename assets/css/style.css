@@ -14,7 +14,7 @@ body {
 
 .big-button {
     padding: 100px 200px;
-    font-size: 100px;
+    font-size: 80px;
     background-color: rgba(17, 17, 17, 0.9);
     color: red;
     border: none;
@@ -24,8 +24,24 @@ body {
     box-shadow: 20px 20px 75px red;
 }
 
+.small-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: rgba(17, 17, 17, 0.9);
+    color: red;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 4px 4px 25px red;
+}
+
 .big-button:active {
     transform: translate(10px, 10px);
+}
+
+.small-button:active {
+    transform: translate(2.5px, 2.5px);
 }
 
 /* Board */
@@ -35,4 +51,22 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+/* Mode styles */
+
+.leftSide {
+    width: 50%;
+    float: left;
+    padding: 20px;
+}
+
+.rightSide {
+    width: 50%;
+    float: right;
+    padding: 20px;
+}
+
+.formEngine label {
+    font-size: bold;
 }
