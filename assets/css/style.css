@@ -3,20 +3,6 @@ body {
     background-color: #a0a0a0;
 }
 
-.black {
-    width: 100%;
-    height: 100%;
-    border: 1px solid #000;
-    background-color: #333;
-}
-
-.white {
-    width: 100%;
-    height: 100%;
-    background-color: #eee;
-    border: 1px solid #000;
-}
-
 /* Button */
 
 .button-container {
@@ -49,33 +35,4 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
-
-.chessboard {
-    width: 800px;
-    height: 800px;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-}
-
-.boardTable {
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
-}
-
-.boardTable td {
-    border: 1px solid #ccc;
-    padding: 40px;
-    text-align: center;
-}
-
-/* piece clicked */
-.piece-clicked {
-    border: 5px solid yellow;
-}
-
-.valid-move {
-    background-color: yellow;
 }
