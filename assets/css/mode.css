@@ -2,6 +2,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+span b {
+    font-size: 18px;
+}
+
 .container {
     display: flex;
 }
@@ -25,6 +29,8 @@ body {
 .leftSide label {
     display: block;
     margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .leftSide input {
@@ -55,11 +61,21 @@ body {
     text-align: center;
 }
 
-.right-half h2 {
+.rightSide h2 {
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-.formEngine label {
-    font-size: bold;
+.rightSide span {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
 }
