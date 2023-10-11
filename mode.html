@@ -13,20 +13,20 @@
             <h2>Play against Engine</h2>
             <span><b>Description:</b><br>=> Play against an Engine with the following settings</span>
             <br><br>
-            <form class='formEngine' action="playEngine.html" method="POST">
+            <form action="playEngine.html" method="GET">
                 <label for="engineStrength">Engine Strength:</label>
-                <input type="radio" id="engineStrength" name="engineStrength" value="Easy">Easy (Depth x)
-                <input type="radio" id="engineStrength" name="engineStrength" value="Medium">Medium (Depth x)
-                <input type="radio" id="engineStrength" name="engineStrength" value="Hard">Hard (Depth x)
-                <input type="radio" id="engineStrength" name="engineStrength" value="Perfect" checked>Perfect Play
+                <input type="radio" id="engineStrength" name="engineStrength" value="5">Easy (Depth 5)
+                <input type="radio" id="engineStrength" name="engineStrength" value="10">Medium (Depth 10)
+                <input type="radio" id="engineStrength" name="engineStrength" value="15">Hard (Depth 15)
+                <input type="radio" id="engineStrength" name="engineStrength" value="70" checked>Perfect Play
                 <br><br>
                 <label for="orientation">Play as</label>
-                <input type="radio" id="orientation" name="orientation" value="White" checked>White
-                <input type="radio" id="orientation" name="orientation" value="Black">Black
+                <input type="radio" id="orientation" name="orientation" value="white" checked>White
+                <input type="radio" id="orientation" name="orientation" value="black">Black
                 <br><br>
                 <label for="notation">Enable Notation (Square Names):</label>
-                <input type="radio" id="notation" name="notation" value="on" checked>On
-                <input type="radio" id="notation" name="notation" value="off">Off
+                <input type="radio" id="notation" name="notation" value="true" checked>On
+                <input type="radio" id="notation" name="notation" value="false">Off
                 <br><br>
                 <label for="pieceTheme">Piece Theme</label>
                 <input type="radio" id="pieceTheme" name="pieceTheme" value="default" checked>Default
@@ -39,7 +39,7 @@
             <h2>Create Custom Position</h2>
             <span><b>Description:</b><br>=> Engine will show you the best move from any position<br>=> You can play with odds</span>
 
-            <form class="" action="customPosition.html" method="POST">
+            <form action="customPosition.html" method="GET">
                 <input class="small-button" type="submit" value="Create Custom Position">
             </form>
         </div>
