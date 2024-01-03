@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- chessboardjs -->
-    <script src="./assets/js/chessboard-0.3.0.js"></script>
+    <!-- chessboard.js -->
     <link rel="stylesheet" href="./assets/css/chessboard-0.3.0.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="./assets/js/chessboard-0.3.0.js"></script>
+
+    <!-- chess.js (rules) -->
+    <script src="./assets/js/chess.js/src/chess.js"></script>
 
     <title>Play against Engine</title>
 </head>
 <body>
     <div class="chessboard-container">
         <div id="board" style="width: 400px"></div>
+        <div id="status"></div>
     </div>
-</body>
     <script src="./playEngine.js"></script>
+</body>
 </html>
