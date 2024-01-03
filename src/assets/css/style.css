@@ -11,36 +11,26 @@ body {
     height: 100vh;
 }
 
-.big-button {
-    padding: 100px 200px;
-    font-size: 80px;
-    background-color: rgba(17, 17, 17, 0.9);
-    color: red;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    overflow: hidden;
-    box-shadow: 20px 20px 75px red;
-}
-
+.big-button,
 .small-button {
-    padding: 10px 20px;
-    font-size: 20px;
-    background-color: rgba(17, 17, 17, 0.9);
-    color: red;
-    border: none;
+    padding: 15px 30px;
+    font-size: 24px;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #fff;
     border-radius: 5px;
     cursor: pointer;
-    overflow: hidden;
-    box-shadow: 4px 4px 25px red;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.big-button:active {
-    transform: translate(10px, 10px);
+.big-button:hover,
+.small-button:hover {
+    background-color: #555;
 }
 
+.big-button:active,
 .small-button:active {
-    transform: translate(2.5px, 2.5px);
+    transform: scale(0.95);
 }
 
 /* Board */
@@ -50,4 +40,18 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+body.fade-in {
+    opacity: 1;
 }

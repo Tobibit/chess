@@ -1,24 +1,24 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-span b {
-    font-size: 18px;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
     display: flex;
+    height: 100vh;
 }
 
 .leftSide {
     flex: 1;
-    background-color: #007bff;
+    background-color: #6fa4e5;
     color: #fff;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .leftSide h2 {
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 20px;
 }
 
@@ -30,11 +30,14 @@ span b {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .leftSide input {
     margin-bottom: 10px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .leftSide input[type="radio"] {
@@ -55,14 +58,15 @@ span b {
 
 .rightSide {
     flex: 1;
-    background-color: #333;
+    background-color: #808080;
     color: #fff;
     padding: 20px;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .rightSide h2 {
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 20px;
 }
 
@@ -73,9 +77,16 @@ span b {
 }
 
 button {
-    padding: 10px;
+    padding: 12px;
     background-color: #007bff;
     color: #fff;
     border: none;
     cursor: pointer;
+    font-size: 18px;
+    border-radius: 4px;
 }
+
+button:hover {
+    background-color: #0056b3;
+}
+
